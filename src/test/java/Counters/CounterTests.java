@@ -1,3 +1,5 @@
+package Counters;
+
 import cpu.core.Counter;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,6 +21,11 @@ public class CounterTests {
     }
 
     @Test
+    public void StartAtZero() {
+        assertEquals(0, c.getCount());
+    }
+
+    @Test
     public void CountUpCorrectly() {
         assertEquals(0b0, c.getCount());
         c.countUp();
@@ -35,5 +42,24 @@ public class CounterTests {
         //For 16 bit, max
         Counter c2 = new Counter(16);
         assertEquals(65535, c2.getMaxCount());
+    }
+
+    @Test
+    public void UpperLimitTest() {
+        int bits = c.getBits();
+        long limit = (long) Math.pow(2, bits)-1;
+        for (int i = 0; i < limit; i++) {
+            assertEquals(i, c.getCount());
+            c.countUp();
+        }
+        assertEquals(limit, c.getCount());
+        c.countUp();
+        assertEquals(0, c.getCount());
+    }
+
+    @Test
+    public void ResetProperly() {
+        c.reset();
+        assertEquals(0, c.getCount());
     }
 }

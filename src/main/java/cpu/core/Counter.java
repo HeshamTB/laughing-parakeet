@@ -27,9 +27,14 @@ public class Counter {
 
     public void countUp() {
         state += 0b1;
+        if (state > MAX_COUNT_VALUE) state = 0b0;
     }
 
     public long getMaxCount() {
         return MAX_COUNT_VALUE;
+    }
+
+    public void reset() {
+        this.state = 0b0;
     }
 }
