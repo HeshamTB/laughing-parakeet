@@ -2,9 +2,9 @@ package cpu.core;
 
 public class Counter {
 
-    int state;
-    int bits;
-    long MAX_COUNT_VALUE;
+    protected int state;
+    protected int bits;
+    protected long MAX_COUNT_VALUE;
 
     public Counter(int bits) {
         setBits(bits);
@@ -36,5 +36,10 @@ public class Counter {
 
     public void reset() {
         this.state = 0b0;
+    }
+
+    protected boolean isWithInLimit(long i) {
+        if (i <= MAX_COUNT_VALUE && i >= 0) return true;
+        return false;
     }
 }
