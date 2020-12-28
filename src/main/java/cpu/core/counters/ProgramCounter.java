@@ -1,4 +1,4 @@
-package cpu.core;
+package cpu.core.counters;
 
 public class ProgramCounter extends Counter {
 

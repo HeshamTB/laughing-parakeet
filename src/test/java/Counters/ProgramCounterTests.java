@@ -1,6 +1,6 @@
 package Counters;
 
-import cpu.core.ProgramCounter;
+import cpu.core.counters.ProgramCounter;
 import org.junit.Before;
 import org.junit.Test;
 
