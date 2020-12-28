@@ -6,8 +6,9 @@ public class RandomAccessMemory {
     private int adressBits;
     private int dataLines;
 
-    public RandomAccessMemory(int AddressBits, int dataLines) {
-
+    public RandomAccessMemory(int addressBits, int dataLines) {
+        this.adressBits = addressBits;
+        this.dataLines = dataLines;
     }
 
     public int getAdressBits() {
